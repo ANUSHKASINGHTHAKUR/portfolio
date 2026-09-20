@@ -60,19 +60,19 @@ export default function CyberLab() {
   };
 
   return (
-    <section id="lab" className="py-20 relative bg-[#070a0f] border-t border-slate-800/80">
+    <section id="lab" className="py-20 relative bg-slate-50 dark:bg-[#070a0f] border-t border-slate-200 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-[#00ff9d]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-mono text-emerald-700 dark:text-[#00ff9d] shadow-sm">
             <Terminal className="w-3.5 h-3.5" />
             <span>Interactive Environment</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            My <span className="text-[#00ff9d]">Cybersecurity Lab</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            My <span className="text-emerald-600 dark:text-[#00ff9d]">Cybersecurity Lab</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl text-sm sm:text-base font-sans">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-sm sm:text-base font-sans">
             Hands-on virtual testing infrastructure, daily toolkits, and interactive command-line simulator.
           </p>
         </div>
@@ -81,14 +81,14 @@ export default function CyberLab() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Interactive Terminal CLI Simulator */}
-          <div className="lg:col-span-7 glass-card rounded-2xl border border-slate-800 overflow-hidden shadow-2xl flex flex-col h-[520px]">
+          <div className="lg:col-span-7 glass-card rounded-2xl border border-slate-300 dark:border-slate-800 overflow-hidden shadow-xl dark:shadow-2xl flex flex-col h-[520px]">
             {/* Terminal Header */}
-            <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+            <div className="bg-slate-900 dark:bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                <span className="text-xs font-mono text-slate-400 ml-2">anushka@kali-lab: ~/security-profile</span>
+                <span className="text-xs font-mono text-slate-300 dark:text-slate-400 ml-2">anushka@kali-lab: ~/security-profile</span>
               </div>
               <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -97,7 +97,7 @@ export default function CyberLab() {
             </div>
 
             {/* Command History View */}
-            <div className="p-4 sm:p-5 flex-1 overflow-y-auto font-mono text-xs space-y-3 bg-slate-950/95 terminal-scanlines">
+            <div className="p-4 sm:p-5 flex-1 overflow-y-auto font-mono text-xs space-y-3 bg-slate-950/95 text-slate-100 terminal-scanlines">
               {terminalHistory.map((item, idx) => (
                 <div key={idx} className="space-y-1">
                   {item.type === 'prompt' ? (
@@ -116,8 +116,8 @@ export default function CyberLab() {
             </div>
 
             {/* Quick Command Suggestions Pills */}
-            <div className="p-2.5 bg-slate-900/90 border-t border-slate-800 flex items-center gap-1.5 overflow-x-auto text-[11px] font-mono">
-              <span className="text-slate-500 shrink-0 mr-1">Quick Commands:</span>
+            <div className="p-2.5 bg-slate-900 border-t border-slate-800 flex items-center gap-1.5 overflow-x-auto text-[11px] font-mono">
+              <span className="text-slate-400 shrink-0 mr-1">Quick Commands:</span>
               {suggestionPills.map(pill => (
                 <button
                   key={pill}
@@ -147,12 +147,12 @@ export default function CyberLab() {
 
           {/* Right Column: Lab Tool Matrix & Practice Platforms */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-              <h3 className="text-lg font-bold text-white font-mono flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[#00ff9d]" />
+            <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white font-mono flex items-center gap-2">
+                <Shield className="w-4 h-4 text-emerald-600 dark:text-[#00ff9d]" />
                 Practiced Security Stack
               </h3>
-              <span className="text-xs font-mono text-slate-400">10 Security Tools</span>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">10 Security Tools</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -161,22 +161,22 @@ export default function CyberLab() {
                 return (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all space-y-1.5 group"
+                    className="p-3.5 rounded-xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition-all space-y-1.5 group shadow-sm"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-[#00ff9d]">
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 flex items-center justify-center text-emerald-600 dark:text-[#00ff9d]">
                           <IconComponent className="w-3.5 h-3.5" />
                         </div>
-                        <span className="font-bold text-white text-xs font-mono group-hover:text-[#00ff9d] transition-colors">
+                        <span className="font-bold text-slate-900 dark:text-white text-xs font-mono group-hover:text-emerald-600 dark:group-hover:text-[#00ff9d] transition-colors">
                           {tool.name}
                         </span>
                       </div>
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-950 text-cyan-300 border border-slate-800">
+                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-100 text-cyan-800 dark:bg-slate-950 dark:text-cyan-300 border border-cyan-200 dark:border-slate-800">
                         {tool.level}
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-400 leading-snug font-sans">
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-snug font-sans">
                       {tool.purpose}
                     </p>
                   </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,6 +18,32 @@ import { personalInfo } from './data/portfolioData';
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('portfolio-theme');
+    if (saved) return saved;
+    return 'dark'; // Default theme
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      body.classList.add('dark');
+      body.style.backgroundColor = '#070a0f';
+      body.style.color = '#e2e8f0';
+    } else {
+      root.classList.remove('dark');
+      body.classList.remove('dark');
+      body.style.backgroundColor = '#f8fafc';
+      body.style.color = '#0f172a';
+    }
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const handleDownloadResume = () => {
     // Trigger confetti effect
@@ -38,9 +64,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070a0f] text-slate-100 flex flex-col selection:bg-[#00ff9d] selection:text-black">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#070a0f] text-slate-900 dark:text-slate-100 flex flex-col selection:bg-[#00ff9d] selection:text-black transition-colors duration-300">
       {/* Sticky Navigation */}
-      <Navbar onOpenResumeModal={() => setResumeModalOpen(true)} />
+      <Navbar
+        onOpenResumeModal={() => setResumeModalOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       {/* Main Page Sections */}
       <main className="flex-1">
